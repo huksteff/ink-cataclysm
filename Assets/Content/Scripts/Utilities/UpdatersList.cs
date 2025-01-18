@@ -14,11 +14,15 @@ namespace Content.Scripts.Utilities
             {
                 _updaters.Remove(updater);
             }
-
+            
+            _toRemoveUpdaters.Clear();
+            
             foreach (var updater in _toAddUpdaters)
             {
                 _updaters.Add(updater);
             }
+            
+            _toAddUpdaters.Clear();
             
             foreach (var updater in _updaters)
             {
@@ -40,6 +44,5 @@ namespace Content.Scripts.Utilities
         {
             _updaters.Clear();
         }
-        
     }
 }

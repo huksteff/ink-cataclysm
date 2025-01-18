@@ -10,6 +10,8 @@ namespace Content.Scripts.Player
         private readonly GameModel _gameModel;
         private readonly PlayerView _playerView;
         private readonly PlayerModel _playerModel;
+        private IUpdater _updater;
+        private readonly PresentersList _presentersList = new PresentersList();
 
         public PlayerPresenter(GameModel gameModel, PlayerModel model, PlayerView view)
         {
@@ -20,12 +22,15 @@ namespace Content.Scripts.Player
 
         public void Init()
         {
-            throw new System.NotImplementedException();
+            _presentersList.Init();
+
+            _updater = new PlayerMovementUpdater(_playerModel, _playerView, _gameModel.InputModel);
+            _gameModel.FixedUpdatersList.Add(_updater);
         }
 
         public void Dispose()
         {
-            throw new System.NotImplementedException();
+            _gameModel.FixedUpdatersList.Add(_updater);
         }
     }
 }
