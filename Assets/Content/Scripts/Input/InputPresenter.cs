@@ -1,5 +1,6 @@
 ﻿using Content.Scripts.Utilities;
 using UnityEngine;
+using UnityEngine.XR;
 
 namespace Content.Scripts.Input
 {
@@ -18,12 +19,36 @@ namespace Content.Scripts.Input
         
         public void Init()
         {
-            throw new System.NotImplementedException();
+            _view.Initializa();
+            
+            _view.OnMouseMove += HandleMouseMove;
+            _view.OnLeftClick += HandleLeftClick;
+            _view.OnMouseDelta += HandleMouseDelta;
         }
 
         public void Dispose()
         {
-            throw new System.NotImplementedException();
+            _view.Dispose();
+
+            _view.OnMouseMove -= HandleMouseMove;
+            _view.OnLeftClick -= HandleLeftClick;
+            _view.OnMouseDelta -= HandleMouseDelta;
+        }
+
+        private void HandleLeftClick(bool state)
+        {
+            _model.IsLeftCLicked = state;
+        }
+
+        private void HandleMouseMove(Vector2 vector)
+        {
+            if (!_model.IsLeftCLicked) return;
+            _model.MouseScreenPosition = vector;
+        }
+
+        private void HandleMouseDelta(Vector2 vector)
+        {
+            _model.MouseDelta = vector;
         }
     }
 }

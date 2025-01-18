@@ -10,12 +10,14 @@ namespace Content.Scripts
         public InputModel InputModel { get; }
         public PlayerModel PlayerModel { get; }
         public UpdatersList UpdatersList { get; }
+        public UpdatersList FixedUpdatersList { get; }
 
-        public GameModel(InputModel inputModel, PlayerModel playerModel, UpdatersList updatersList)
+        public GameModel(InputModel inputModel, PlayerModel playerModel, UpdatersList updatersList, UpdatersList fixedUpdatersList)
         {
             InputModel = inputModel;
             PlayerModel = playerModel;
             UpdatersList = updatersList;
+            FixedUpdatersList = fixedUpdatersList;
         }
     }
 }

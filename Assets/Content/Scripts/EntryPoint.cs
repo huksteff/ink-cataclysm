@@ -13,10 +13,11 @@ namespace Content.Scripts
         private GameModel _gameModel;
         private readonly PresentersList _presentersList = new();
         private readonly UpdatersList _updatersList = new();
+        private readonly UpdatersList _fixedUpdatersList = new();
 
         private void Start()
         {
-            _gameModel = new GameModel(new InputModel(), new PlayerModel(), _updatersList);
+            _gameModel = new GameModel(new InputModel(), new PlayerModel(),_updatersList, _fixedUpdatersList);
             _presentersList.Add(new InputPresenter(_gameModel, _gameModel.InputModel, InputView));
             _presentersList.Add(new PlayerPresenter(_gameModel, _gameModel.PlayerModel, PlayerView));
             
@@ -26,6 +27,11 @@ namespace Content.Scripts
         private void Update()
         {
             _updatersList.Update(Time.deltaTime);
+        }
+
+        private void FixedUpdate()
+        {
+            _fixedUpdatersList.Update(Time.fixedDeltaTime);
         }
 
         private void OnDestroy()

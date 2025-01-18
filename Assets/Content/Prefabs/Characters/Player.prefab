@@ -192,10 +192,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6624528189651326316}
   - component: {fileID: 58921595604655858}
-  - component: {fileID: 8493602292453936934}
+  - component: {fileID: 1455517172302721807}
   - component: {fileID: 4032824201743726242}
   - component: {fileID: 4303485067189627797}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8493602292453936934
+--- !u!114 &1455517172302721807
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -253,8 +253,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerAnimator: {fileID: 58921595604655858}
-  InputActionReference: {fileID: -8434360711760579639, guid: 43d90514e7a6e4547b800c7f297fa99f,
-    type: 3}
+  MovementSpeed: 1
+  RotationSpeed: 40
+  Root: {fileID: 6624528189651326316}
+  RootRigidbody: {fileID: 4032824201743726242}
 --- !u!54 &4032824201743726242
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -264,8 +266,8 @@ Rigidbody:
   m_GameObject: {fileID: 8857796400148387682}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 0.06
+  m_AngularDrag: 0.06
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -280,7 +282,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &4303485067189627797
 BoxCollider:
@@ -289,7 +291,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8857796400148387682}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 38736d857f1a8684da7f1d8975b68bc9, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -301,7 +303,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 0.6}
+  m_Size: {x: 0.8, y: 2, z: 0.4}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &2076713843051001034
 PrefabInstance:
